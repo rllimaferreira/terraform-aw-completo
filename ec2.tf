@@ -13,21 +13,24 @@ resource "aws_instance" "front_nidio-ec2" {
       #!/bin/bash
       sudo apt-get update
       sudo apt-get install apache2 -y
-      sudo echo "<h1> Olár </h1>" > /var/www/html/index.html
+      sudo git clone https://github.com/nidiodolfini/aula21
+      sudo chmod 777 -R aula21/
+      sudo cp -rf aula21/* /var/www/html/
     EOF
 
 }
 
 resource "aws_instance" "back_nidio-ec2" {
-    count = 1
-    ami = "ami-085284d24fe829cd0"
-    instance_type = "t2.micro"
     tags = {
       Name = "back_nidio-ec2-${count.index}"
     }
+    count = 1
+    ami = "ami-085284d24fe829cd0"
+    instance_type = "t2.micro"
     key_name = "nidio-terraform-aws"
-    vpc_security_group_ids = ["${aws_security_group.nidio-acesso-ssh-private.id}","${aws_security_group.nidio-acesso-web.id}" ]
     subnet_id = aws_subnet.nidio_private_subnet.id
+    vpc_security_group_ids = ["${aws_security_group.nidio-acesso-ssh-private.id}","${aws_security_group.nidio-acesso-web.id}" ]
+    
 }
 
 resource "aws_instance" "mngt_nidio-ec2" {

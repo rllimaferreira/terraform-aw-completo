@@ -1,5 +1,4 @@
 resource "aws_security_group" "nidio-acesso-ssh-private" {
-  name = "nidio-acesso-ssh"
   description = "nidio sg acesso ssh"
   vpc_id = aws_vpc.nidio_vpc.id
  
