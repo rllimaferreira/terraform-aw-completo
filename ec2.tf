@@ -13,9 +13,9 @@ resource "aws_instance" "front_nidio-ec2" {
       #!/bin/bash
       sudo apt-get update
       sudo apt-get install apache2 -y
-      sudo git clone https://github.com/nidiodolfini/aula21
-      sudo chmod 777 -R aula21/
-      sudo cp -rf aula21/* /var/www/html/
+      sudo git clone https://github.com/ibsonjunior/Mulher_Maravilha.git
+      sudo chmod 777 -R Mulher_Maravilha/
+      sudo cp -rf Mulher_Maravilha/* /var/www/html/
     EOF
 
 }
