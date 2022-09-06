@@ -29,14 +29,14 @@ resource "aws_instance" "front_nidio-ec2" {
   #no caso estamos fazendo o update dos repositório
   #instalação do apache e git clone no projeto Mulher Maravilha
   #e colando na pasta padrão do apache
-  user_data = <<-EOF
-    #!/bin/bash
-    sudo apt-get update
-    sudo apt-get install apache2 -y
-    sudo git clone https://github.com/ibsonjunior/Mulher_Maravilha.git
-    sudo chmod 777 -R Mulher_Maravilha/
-    sudo cp -rf Mulher_Maravilha/* /var/www/html/
-  EOF
+  # user_data = <<-EOF
+  #   #!/bin/bash
+  #   sudo apt-get update
+  #   sudo apt-get install apache2 -y
+  #   sudo git clone https://github.com/ibsonjunior/Mulher_Maravilha.git
+  #   sudo chmod 777 -R Mulher_Maravilha/
+  #   sudo cp -rf Mulher_Maravilha/* /var/www/html/
+  # EOF
 
 }
 

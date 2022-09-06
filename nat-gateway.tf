@@ -10,4 +10,8 @@ resource "aws_nat_gateway" "nidio_nat_gateway" {
   #colocando que ela terá uma conectividade publica, pois
   #a partir dela as VMs das redes privadas irão para a internet
   connectivity_type = "public"
+
+  tags = {
+    Name = "NATGW nidio"
+  }
 }
